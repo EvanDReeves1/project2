@@ -1,7 +1,7 @@
 #include "types.h"
 #include <string.h>
 #include <stdlib.h>
-#include <studio.h>
+#include <stdio.h>
 
 
 extern struct NODE* root;
