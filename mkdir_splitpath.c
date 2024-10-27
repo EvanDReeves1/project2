@@ -73,7 +73,7 @@ struct NODE* splitPath(char* pathName, char* baseName, char* dirName){
         return root;
     } 
 
-    char* lastSlash = strrchr(pathName, "/");
+    char* lastSlash = strrchr(pathName, '/');
     if(lastSlash != NULL) {
         size_t lenDir = lastSlash - pathName;
         strncpy(dirName, pathName, lenDir);
