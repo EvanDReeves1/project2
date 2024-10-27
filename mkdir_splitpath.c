@@ -89,7 +89,7 @@ struct NODE* splitPath(char* pathName, char* baseName, char* dirName){
     char* token = strtok(dirName, "/");
     while(token != NULL) {
         struct NODE* found = NULL;
-        struct NODE* child = current->childPtr;
+        struct NODE* child = currentNode->childPtr;
 
         while(child != NULL) {
             if(strcmp(child->name, token) == 0) {
@@ -104,9 +104,9 @@ struct NODE* splitPath(char* pathName, char* baseName, char* dirName){
             return NULL;
         }
 
-        current = found;
+        currentNode = found;
         token = strtok(NULL, "/");
     }
 
-    return current;
+    return currentNode;
 }
