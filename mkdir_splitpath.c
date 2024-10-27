@@ -67,7 +67,7 @@ struct NODE* splitPath(char* pathName, char* baseName, char* dirName){
     // rm, rmdir, ls, cd, touch COMMANDS WILL NOT EXECUTE CORRECTLY
     // SEE THE PROVIDED EXECUTABLE TO SEE THEIR EXPECTED BEHAVIOR
 
-    if(srtcmp(pathName, "/") == 0) {
+    if(strcmp(pathName, "/") == 0) {
         strcpy(dirName, "/");
         strcpy(baseName, "");
         return root;
