@@ -18,12 +18,12 @@ void mkdir(char pathName[]){
     char baseName[64];
     char dirName[64];
 
-    struct NODE* parentDir = splitPath(pathName, baseName, dirName);
-    if(parentDir == NULL) {
+    struct NODE* parentPtr = splitPath(pathName, baseName, dirName);
+    if(parentPtr == NULL) {
         return;
     }
 
-    struct NODE* child = parentDir->childPtr;
+    struct NODE* child = parentPtr->childPtr;
 
     while(child != NULL) {
         if(strcmp(child->name, baseName) == 0) {
@@ -42,12 +42,12 @@ void mkdir(char pathName[]){
     newDir->fileType = 'D';
     newDir->childPtr = NULL;
     newDir->siblingPtr = NULL;
-    newDir->parentDir = parentDir;
+    newDir->parentPtr = parentPtr;
 
-    if(parentDir->childPtr == NULL) {
-        parentDir->childPtr = newDir;
+    if(parentPtr->childPtr == NULL) {
+        parentPtr->childPtr = newDir;
     } else {
-        struct NODE* lastChild = parentDir->childPtr;
+        struct NODE* lastChild = parentPtr->childPtr;
         while(lastChild->siblingPtr != NULL) {
             lastChild = lastChild->siblingPtr;
         }
